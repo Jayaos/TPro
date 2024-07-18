@@ -258,6 +258,56 @@ def tp_graph_constructor(cassettes, verbose=False):
     return root_node, n_roots
 
 
+def tp_graph_constructor_sepa(cassettes, verbose=False):
+
+    tp_nodes = []
+    for cassette in cassettes:
+        if cassette.promoter == "constitutive":
+            tp_nodes.append(ConstitutiveNode(cassette.transcription_factor))
+            if verbose:
+                print(tp_nodes[-1])
+        else:
+            incident_tfs = []
+            for _cassette in cassettes:
+                if (_cassette.transcription_factor.dbd == cassette.promoter) and (_cassette.transcription_factor not in incident_tfs):
+                    incident_tfs.append(_cassette.transcription_factor)
+            tp_nodes.append(TPNode(program=SEPAProgram(incident_tfs,output=cassette.transcription_factor), parents=[]))
+            if verbose:
+                print(tp_nodes[-1])
+                    
+    
+    # identify the parents of each node
+    # parents produce TFs which are used as inputs to a node's program
+    for i in range(len(tp_nodes)):
+        if isinstance(tp_nodes[i], ConstitutiveNode):
+            continue
+        for j in range(len(tp_nodes)):
+            if isinstance(tp_nodes[j], ConstitutiveNode):
+                out_j = tp_nodes[j].output
+            else:
+                out_j = tp_nodes[j].program.output
+            if out_j in tp_nodes[i].program.transcription_factors:
+                tp_nodes[i].parents.append(tp_nodes[j])
+
+
+    # find the node which has no children
+    n_children_dict = {}
+    n_roots = 0
+    for node in tp_nodes:
+        n_children_dict[node] = 0
+        for _node in tp_nodes:
+            if (not isinstance(_node, ConstitutiveNode)) and node in _node.parents:
+                n_children_dict[node] += 1
+        if n_children_dict[node] == 0:
+            n_roots += 1
+            if verbose:
+                print('root found')
+            root_node = node
+
+
+    return root_node, n_roots
+
+
 def replace_inversion(root, retained_nodes, removed_nodes, verbose=False):
     '''
     Move recursively through the graph to detect
