@@ -1,19 +1,19 @@
 import numpy as np
+from structures.transcription_factors import *
 
 class SEPAProgram:
     '''
     Defines logical behavior of a Cassette
     which can take arbitrarily many input TFs
-    to regulate expression of a single output.
+    to regulate expression of a single output
     '''
-    def __init__(self, transcription_factors, output):
+    def __init__(self, transcription_factors: list, output: TranscriptionFactor):
         '''
-        All TFs must have the same DNA binding domain
+        NOTE: All TFs must have the same DNA binding domain
 
         Attributes
         ----------
-        transcription_factors (list of TranscriptionFactor) : the TFs
-            which bind to the promoter of the cassette
+        transcription_factors (list of TranscriptionFactor) : the TFs which bind to the promoter of the cassette
         output (TranscriptionFactor) : the protein whose expression is regulated by
             TFs binding to the promoter of the cassette
         dbd (str) : three character string indicating DNA binding
@@ -28,7 +28,7 @@ class SEPAProgram:
         
         assert np.array([self.transcription_factors[i].dbd == self.dbd for i in range(self.n_factors)]).all()
     
-    def evaluate(self, proteins, ligands):
+    def evaluate(self, proteins: list, ligands: list):
         '''
         yield output based on presence (1) 
         of proteins and ligands or lack thereof (0)
@@ -48,6 +48,7 @@ class SEPAProgram:
                 outs.append(transcription_factor.evaluate(ligands))
             else:
                 outs.append(1)
+
         return np.bitwise_and.reduce(outs, axis=0)
     
     def __str__(self):
@@ -67,9 +68,9 @@ class MIMOProgram:
     '''
     Defines logical behavior of a set of Cassettes
     which each take one input TF to regulate expression
-    of one output.
+    of one output
     '''
-    def __init__(self, transcription_factors, output):
+    def __init__(self, transcription_factors: list, output: list):
         '''
         The number of TFs in input should be the same as
         that of output

@@ -3,8 +3,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import itertools
 from structures.nodes import *
-from structures.transcriptional_programs import *
 from structures.transcription_factors import *
+from structures.transcriptional_programs import *
 import visualization.visualization_funcs as vis
 
 

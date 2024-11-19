@@ -1,3 +1,4 @@
+import numpy as np
 
 class TranscriptionFactor:
     '''
@@ -36,11 +37,11 @@ class TranscriptionFactor:
         ------
         output (int) : 1 indicates expression, 0 otherwise
         '''
-        if self.repression == "+":
+        if self.repression == "+": # repressor
             return int(self.rcd in ligands)
-        elif self.repression == "A":
+        elif self.repression == "A": # anti-repressor
             return int(not (self.rcd in ligands))
-        elif self.repression == "S":
+        elif self.repression == "S": # super-repressor
             return 0
         
     def __eq__(self, tf):

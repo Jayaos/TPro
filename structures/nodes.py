@@ -3,15 +3,13 @@ import numpy as np
 class ConstitutiveNode:
     '''
     Highest-level parent nodes which
-    defined constitutive expression
-    of TranscriptionFactor output
+    defined constitutive expression of TranscriptionFactor output
     '''
     def __init__(self, output):
         '''
         Attributes
         ----------
-        output (TranscriptionFactor) : the protein which is
-            constitutively expressed
+        output (TranscriptionFactor) : the protein which is constitutively expressed
         '''
         self.output = output
         
@@ -24,8 +22,7 @@ class ConstitutiveNode:
 
 class TPNode:
     '''
-    Nodes which manage transport of proteins
-    between Cassettes in a transcriptional program.
+    Nodes which manage transport of proteins between Cassettes in a transcriptional program.
     '''
     def __init__(self, program, parents):
         '''
