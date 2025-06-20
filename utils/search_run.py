@@ -423,7 +423,9 @@ def search_circuit_recursive_run(num_constit, num_channel, save_dir, partial_sav
             nnz_list.append(logic_table_dict_thisconfig[key][i].nnz)
         smallest_circuits_thisconfig[key] = logic_table_dict_thisconfig[key][np.argmin(nnz_list)]
 
-    save_data(save_dir, smallest_circuits_thisconfig)
+    saveing = save_dir + "{}c{}ch.pkl".format(num_constit, num_channel)
+
+    save_data(saveing, smallest_circuits_thisconfig)
 
 
 """

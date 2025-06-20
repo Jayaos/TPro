@@ -8,7 +8,7 @@ This repository contains codes for algorithmic enumeration of 3-input transcript
 
 
 ### Installation
-The codes were written in Python 3.9.13. If you want to implement locally,
+The codes were written in Python 3.9.13. If you want to implement on your local machine,
 
 1. Clone this repository
 2. Move to the directory where you clone this repository and install requirements using pip
@@ -19,7 +19,7 @@ The codes were written in Python 3.9.13. If you want to implement locally,
 ### Example 
 We provide an example script on colab notebook.
 
-<a target="_blank" href="https://colab.research.google.com/github/Jayaos/TCPTS/blob/main/examples/hetero_example.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/Jayaos/TPro/blob/master/examples/example_script.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 

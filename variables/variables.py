@@ -5,7 +5,6 @@ import numpy as np
 dbds = ['1','2','3','4','5']
 rcds = ['A', 'B', 'C']
 exps = ["+", "A", "S"]
-
 three_inp_eval = [[0,0,0],[1,0,0],[0,1,0],[0,0,1],[1,1,0],[1,0,1],[0,1,1],[1,1,1]]
 
 dbd_to_column_map = {
