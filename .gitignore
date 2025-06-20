@@ -2,6 +2,6 @@
 __pycache__/
 results/
 backup/
-*.ipynb
+notebooks/
 *.png
 *dict*
