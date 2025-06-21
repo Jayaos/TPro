@@ -423,73 +423,8 @@ def search_circuit_recursive_run(num_constit, num_channel, save_dir, partial_sav
             nnz_list.append(logic_table_dict_thisconfig[key][i].nnz)
         smallest_circuits_thisconfig[key] = logic_table_dict_thisconfig[key][np.argmin(nnz_list)]
 
-    saving = save_dir + "{}c{}ch.pkl".format(num_constit, num_channel)
+    saving = save_dir + "{}c{}ch".format(num_constit, num_channel)
 
     save_data(saving, smallest_circuits_thisconfig)
 
-
-"""
-
-def search_circuits_recursive(this_representation, checked_circuits, logic_table_dict,
-                              num_constit=1, num_channel=3, partial_save=None, parallel=False):
-
-    # Create hash to uniquely identify this matrix
-    hex_repr = hex(int("".join(list(this_representation.flatten().astype(str))), 2))
-
-    # Duplicate pruning
-    if hex_repr in checked_circuits:
-        return
-    checked_circuits.add(hex_repr)
-
-    # Count current TFs and channels used
-    constitutive_used = this_representation[:, 0].sum()
-    channel_used = this_representation[:, 1:].sum()
-
-    # If limits reached, check if circuit is valid; otherwise prune
-    if constitutive_used >= num_constit and channel_used >= num_channel:
-        if not check_single_root(this_representation):
-            return
-        if not check_validity(this_representation, verbose=True):
-            return
-
-        # Evaluate valid circuit
-        tp_graph, n_roots = graph_from_matrix(this_representation)
-        assert n_roots == 1, 'check_single_root missed a root!'
-
-        logic_str = "".join([str(tp_graph.evaluate(inp)) for inp in three_inp_eval])
-        mat = scipy.sparse.csr_matrix(this_representation)
-
-        if logic_str not in logic_table_dict:
-            logic_table_dict[logic_str] = [mat]
-            print(f"Found {len(logic_table_dict)} Logic Tables")
-            if partial_save:
-                save_data(partial_save + "{}c{}ch_{}logic_table.pkl".format(num_constit, num_channel, len(logic_table_dict)), 
-                          logic_table_dict)
-        else:
-            logic_table_dict[logic_str].append(mat)
-            if partial_save:
-                save_data(partial_save + "{}c{}ch_{}logic_table.pkl".format(num_constit, num_channel, len(logic_table_dict)), 
-                          logic_table_dict)
-            
-        return  # Stop further growth on this branch
-
-    # Otherwise, keep expanding valid components
-    valid_idx = get_next_valid_idx(this_representation,
-                                   num_constit=num_constit,
-                                   num_channel=num_channel,
-                                   parallel=parallel)
-
-    for idx_i, idx_j in valid_idx:
-        next_representation = np.copy(this_representation)
-        next_representation[idx_i, idx_j] = 1
-
-        # Recursively grow this configuration
-        search_circuits_recursive(next_representation,
-                                  checked_circuits,
-                                  logic_table_dict,
-                                  num_constit=num_constit,
-                                  num_channel=num_channel,
-                                  partial_save=partial_save,
-                                  parallel=parallel)
-
-"""
+    

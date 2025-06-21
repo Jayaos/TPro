@@ -1,6 +1,7 @@
 import os
 import pickle
 import numpy as np
+import pandas as pd
 from tqdm import tqdm
 from constructor.tp_graph import TPGraph
 from structures.nodes import *
@@ -205,3 +206,28 @@ def csr_to_circuit_string(csr_rep):
     this_string = graph_to_string(this_node, this_string)
 
     return logic_str, this_string
+
+
+def merged_dict_to_table(merged_dict, merged_desc):
+
+    rows = []
+    for this_key in merged_dict.keys():
+        dense_rep = merged_dict[this_key].A
+        this_circuit_desc = merged_desc[this_key]
+    
+        tp_graph, n_roots = graph_from_matrix(dense_rep)
+
+        if n_roots != 1:
+            assert False
+
+        logic_str = ""
+        for inp in three_inp_eval:
+            logic_str += str(tp_graph.evaluate(inp))
+            
+        this_node = tp_graph.root
+        this_string = ""
+        this_string = graph_to_string(this_node, this_string)
+        
+        rows.append([logic_str, this_string, this_circuit_desc])
+    
+    return pd.DataFrame(rows, columns = ['logic_string', 'circuit_string', 'circut_desc']) 
