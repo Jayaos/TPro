@@ -333,8 +333,7 @@ def search_circuits_recursive(this_representation, checked_circuits, logic_table
                     partial_save + f"{num_constit}c{num_channel}ch_{len(logic_table_dict)}logic_table.pkl",
                     logic_table_dict
                 )
-        return  # Stop further growth on this exact match
-
+                
     # Otherwise, keep expanding valid components
     valid_idx = get_next_valid_idx(this_representation,
                                    num_constit=num_constit,
