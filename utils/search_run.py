@@ -336,8 +336,6 @@ def search_circuits_recursive(this_representation, checked_circuits, logic_table
                                    num_channel=num_channel,
                                    parallel=parallel)
     
-    random.shuffle(valid_idx) # add randomness for more efficient search 
-
     for idx_i, idx_j in valid_idx:
         next_representation = np.copy(this_representation)
         next_representation[idx_i, idx_j] = 1
