@@ -308,32 +308,28 @@ def search_circuits_recursive(this_representation, checked_circuits, logic_table
     # Evaluate if exact match is reached
     if constitutive_used == num_constit and channel_used == num_channel:
         if not check_single_root(this_representation):
-            return
-        if not check_validity(this_representation, verbose=True):
-            return
-
-        # Evaluate valid circuit
-        tp_graph, n_roots = graph_from_matrix(this_representation)
-        assert n_roots == 1, 'check_single_root missed a root!'
-
-        logic_str = "".join([str(tp_graph.evaluate(inp)) for inp in three_inp_eval])
-        mat = scipy.sparse.csr_matrix(this_representation)
-
-        if logic_str not in logic_table_dict:
-            logic_table_dict[logic_str] = [mat]
-            if partial_save:
-                safe_save_pickle(
-                    partial_save + f"{num_constit}c{num_channel}ch_{len(logic_table_dict)}logic_table.pkl",
-                    logic_table_dict
-                )
+            pass
+        elif not check_validity(this_representation, verbose=True):
+            pass
         else:
-            logic_table_dict[logic_str].append(mat)
+            # Evaluate valid circuit
+            tp_graph, n_roots = graph_from_matrix(this_representation)
+            assert n_roots == 1, 'check_single_root missed a root!'
+
+            logic_str = "".join([str(tp_graph.evaluate(inp)) for inp in three_inp_eval])
+            mat = scipy.sparse.csr_matrix(this_representation)
+
+            if logic_str not in logic_table_dict:
+                logic_table_dict[logic_str] = [mat]
+            else:
+                logic_table_dict[logic_str].append(mat)
+            
             if partial_save:
                 safe_save_pickle(
                     partial_save + f"{num_constit}c{num_channel}ch_{len(logic_table_dict)}logic_table.pkl",
                     logic_table_dict
-                )
-                
+                    )
+
     # Otherwise, keep expanding valid components
     valid_idx = get_next_valid_idx(this_representation,
                                    num_constit=num_constit,
