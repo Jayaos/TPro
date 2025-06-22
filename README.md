@@ -11,6 +11,8 @@ This repository contains codes for algorithmic enumeration of 3-input transcript
 The codes were written in Python 3.9.13. If you want to implement on your local machine,
 
 1. Clone this repository
+
+        !git clone https://github.com/Jayaos/Tpro
 2. Move to the directory where you clone this repository and install requirements using pip
 
         pip install -r requirements.txt
