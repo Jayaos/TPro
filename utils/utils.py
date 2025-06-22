@@ -191,7 +191,7 @@ def graph_to_string(this_node, this_string):
 
 def csr_to_circuit_string(csr_rep):
 
-    dense_rep = csr_rep.A
+    dense_rep = csr_rep.toarray()
     tp_graph, n_roots = graph_from_matrix(dense_rep)
 
     if n_roots != 1:
@@ -212,7 +212,7 @@ def merged_dict_to_table(merged_dict, merged_desc):
 
     rows = []
     for this_key in merged_dict.keys():
-        dense_rep = merged_dict[this_key].A
+        dense_rep = merged_dict[this_key].toarray()
         this_circuit_desc = merged_desc[this_key]
     
         tp_graph, n_roots = graph_from_matrix(dense_rep)
