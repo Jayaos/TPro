@@ -18,7 +18,7 @@ The codes were written in Python 3.9.13. If you want to implement on your local 
         pip install -r requirements.txt
 
 
-### Example 
+### Algorithmic Enumeration Example 
 We provide a Colab notebook example with step-by-step instructions for implementing algorithmic enumeration of 3-input Tpro circuits.
 
 <a target="_blank" href="https://colab.research.google.com/github/Jayaos/TPro/blob/master/examples/example_script.ipynb">
