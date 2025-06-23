@@ -31,7 +31,7 @@ We provide a Colab notebook example with step-by-step instructions for implement
 </a>
 
 
-### SISO Performance Optimization
+### Single-input Single-output (SISO) Performance Optimization
 We provide a Colab notebook with interactive tools for Hill function fitting and RBS optimization of single-input transcriptional modules, which can also be extended to multi-input (MISO) circuit performance prediction.
 
 <a target="_blank" href="https://colab.research.google.com/github/Jayaos/TPro/blob/master/examples/siso_optimization_script.ipynb">
