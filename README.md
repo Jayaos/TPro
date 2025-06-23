@@ -28,7 +28,7 @@ We provide a Colab notebook example with step-by-step instructions for implement
 
 ### SISO Performance Optimization
 
-<a target="_blank" href="https://colab.research.google.com/github/Jayaos/TPro/blob/master/examples/siso_optimization.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/Jayaos/TPro/blob/master/examples/siso_optimization_script.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
