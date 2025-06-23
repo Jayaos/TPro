@@ -1,5 +1,10 @@
 ## Algorithmic Enumeration of 3-input Transcriptional Programming Circuits
 
+
+<p align="center">
+  <img src="images/Tpro_github_page.jpg" alt="Circuit Example" width="500"/>
+</p>
+
 This repository contains codes for algorithmic enumeration of 3-input transcriptional programming (T-Pro) circuits in our paper ["Engineering wetware and software for the predictive design of compressed genetic circuits for higher-state decision-making"]().
 
     Engineering wetware and software for the predictive design of compressed genetic circuits for higher-state decision-making
