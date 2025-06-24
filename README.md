@@ -8,7 +8,7 @@
 This repository contains codes for algorithmic enumeration of 3-input transcriptional programming (T-Pro) circuits in our paper ["Engineering wetware and software for the predictive design of compressed genetic circuits for higher-state decision-making"]().
 
     Engineering wetware and software for the predictive design of compressed genetic circuits for higher-state decision-making
-        Brian D. Huang, Yongjoon Yu, Matthew W. Repasky, Junghwan Lee, Yao Xie, Matthew J. Realff, and Corey J. Wilson
+        Brian D. Huang, Yongjoon Yu, Junghwan Lee, Matthew W. Repasky, Yao Xie, Matthew J. Realff, and Corey J. Wilson
         Under review
 
 
