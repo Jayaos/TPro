@@ -7,10 +7,6 @@
 
 This repository contains codes for algorithmic enumeration of 3-input transcriptional programming (T-Pro) circuits in our paper ["Engineering wetware and software for the predictive design of compressed genetic circuits for higher-state decision-making"]().
 
-    Engineering wetware and software for the predictive design of compressed genetic circuits for higher-state decision-making
-        Brian D. Huang, Yongjoon Yu, Junghwan Lee, Matthew W. Repasky, Yao Xie, Matthew J. Realff, and Corey J. Wilson
-        Under review
-
 
 ### Installation
 The codes were written in Python 3.9.13. If you want to implement on your local machine,
@@ -37,6 +33,13 @@ We provide a Colab notebook with interactive tools for Hill function fitting and
 <a target="_blank" href="https://colab.research.google.com/github/Jayaos/TPro/blob/master/examples/siso_optimization_script.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
+
+## How to Cite
+
+    Engineering wetware and software for the predictive design of compressed genetic circuits for higher-state decision-making
+        Brian D. Huang, Yongjoon Yu, Junghwan Lee, Matthew W. Repasky, Yao Xie, Matthew J. Realff, and Corey J. Wilson
+        Under revision at Nature Communications
+
 
 ## License
 
