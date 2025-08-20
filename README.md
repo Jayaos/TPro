@@ -38,7 +38,7 @@ We provide a Colab notebook with interactive tools for Hill function fitting and
 
     Engineering wetware and software for the predictive design of compressed genetic circuits for higher-state decision-making
         Brian D. Huang, Yongjoon Yu, Junghwan Lee, Matthew W. Repasky, Yao Xie, Matthew J. Realff, and Corey J. Wilson
-        Under revision at Nature Communications
+        Nature Communications
 
 
 ## License
